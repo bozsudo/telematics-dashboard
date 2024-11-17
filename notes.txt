@@ -1,0 +1,22 @@
+Build the Docker.angular image
+> docker-compose build angular-cli
+
+Run the container
+> docker-compose up -d angular-cli
+
+Run an interactive shell in the container
+> docker exec -it telematics-dashboard_angular-cli_1 sh
+
+Create new Angular project
+> ng new --directory=./
+    Name: telematics-dashboard
+    Style: CSS
+    SSR: yes
+
+When changing docker-compose rebuild and apply changes
+> docker-compose down
+> docker-compose build
+> docker-compose up -d
+Alternatively:
+> docker-compose down
+> ./scripts/start.sh

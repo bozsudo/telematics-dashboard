@@ -1,0 +1,17 @@
+Create boilerplate using the Docker container image
+> docker run --rm -it -v ${PWD}/backend:/app -w /app mcr.microsoft.com/dotnet/sdk:8.0 dotnet new webapi --name backend
+    --rm: Automatically remove the container after it exits.
+    -it: Run interactively with a terminal.
+    -v ${PWD}:/app: Mount your current directory into /app in the container.
+    -w /app: Set /app as the working directory in the container.
+
+Start and attach to a running container
+> docker start -a telematics-dashboard_backend_1
+
+Add package using the Docker container image
+> docker run --rm -it -v ${PWD}/backend:/app -w /app mcr.microsoft.com/dotnet/sdk:8.0 dotnet add package RabbitMQ.Client
+> docker run --rm -it -v ${PWD}/backend:/app -w /app mcr.microsoft.com/dotnet/sdk:8.0 dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
+> docker run --rm -it -v ${PWD}/backend:/app -w /app mcr.microsoft.com/dotnet/sdk:8.0 dotnet add package MongoDB.Driver
+# Waiting for migration guide to 7.x
+> docker run --rm -it -v ${PWD}/backend:/app -w /app mcr.microsoft.com/dotnet/sdk:8.0 dotnet remove package RabbitMQ.Client
+> docker run --rm -it -v ${PWD}/backend:/app -w /app mcr.microsoft.com/dotnet/sdk:8.0 dotnet add package RabbitMQ.Client --version 6.8.1
